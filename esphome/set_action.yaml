@@ -1,0 +1,9 @@
+- lambda: |-
+    if (x == "disabled") {
+      id(display_light_mosaic).show_page(id(disabled));
+    } else if (x == "mono") {
+      id(display_light_mosaic).show_page(id(mono));
+    } else if (x == "gradient") {
+      id(display_light_mosaic).show_page(id(gradient));
+    };
+- component.update: display_light_mosaic

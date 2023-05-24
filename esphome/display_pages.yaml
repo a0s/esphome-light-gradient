@@ -1,0 +1,35 @@
+- id: disabled
+  lambda: |-
+    Color black = Color(0x000000);
+    for (int i = 0; i <= it.get_height() - 1; ++i) {
+      it.draw_pixel_at(0, i, black);
+    }
+- id: mono
+  lambda: |-
+    Color top = Color(
+      (id(rgb_light_mosaic_begin).current_values.get_red()*255),
+      (id(rgb_light_mosaic_begin).current_values.get_green()*255),
+      (id(rgb_light_mosaic_begin).current_values.get_blue()*255)
+    );
+    for (int i = 0; i <= it.get_height() - 1; ++i) {
+      it.draw_pixel_at(0, i, top);
+    }
+- id: gradient
+  lambda: |-
+    Color top = Color(
+      (id(rgb_light_mosaic_begin).current_values.get_red()*255),
+      (id(rgb_light_mosaic_begin).current_values.get_green()*255),
+      (id(rgb_light_mosaic_begin).current_values.get_blue()*255)
+    );
+    Color bottom = Color(
+      (id(rgb_light_mosaic_end).current_values.get_red()*255),
+      (id(rgb_light_mosaic_end).current_values.get_green()*255),
+      (id(rgb_light_mosaic_end).current_values.get_blue()*255)
+    );
+    for (int i = 0; i <= it.get_height()-1; ++i) {
+        float t = i / float(it.get_height() - 1);
+        uint8_t r = top.r + t * (bottom.r - top.r);
+        uint8_t g = top.g + t * (bottom.g - top.g);
+        uint8_t b = top.b + t * (bottom.b - top.b);
+        it.draw_pixel_at(0, i, Color(r, g, b));
+    }

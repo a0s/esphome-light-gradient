@@ -1,0 +1,70 @@
+- id: '1684879099967'
+  name: Mosaic Blue Pink
+  entities:
+    light.mosaic_begin_color:
+      supported_color_modes:
+      - rgb
+      friendly_name: Mosaic Begin Color
+      supported_features: 40
+      color_mode: rgb
+      brightness: 255
+      hs_color:
+      - 249.767
+      - 50.588
+      rgb_color:
+      - 147
+      - 126
+      - 255
+      xy_color:
+      - 0.234
+      - 0.163
+      state: 'on'
+    light.mosaic_end_color:
+      supported_color_modes:
+      - rgb
+      friendly_name: Mosaic End Color
+      supported_features: 40
+      color_mode: rgb
+      brightness: 255
+      hs_color:
+      - 315.059
+      - 100
+      rgb_color:
+      - 255
+      - 0
+      - 191
+      xy_color:
+      - 0.477
+      - 0.196
+      state: 'on'
+    select.mosaic_select_mode:
+      options:
+      - disabled
+      - mono
+      - gradient
+      friendly_name: Mosaic Select Mode
+      state: gradient
+  metadata: {}
+- id: '1684879135199'
+  name: Mosaic Off
+  entities:
+    light.mosaic_begin_color:
+      supported_color_modes:
+      - rgb
+      friendly_name: Mosaic Begin Color
+      supported_features: 40
+      state: 'off'
+    light.mosaic_end_color:
+      supported_color_modes:
+      - rgb
+      friendly_name: Mosaic End Color
+      supported_features: 40
+      state: 'off'
+    select.mosaic_select_mode:
+      options:
+      - disabled
+      - mono
+      - gradient
+      friendly_name: Mosaic Select Mode
+      state: disabled
+  metadata: {}

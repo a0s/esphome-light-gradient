@@ -1,0 +1,91 @@
+substitutions:
+  mosaic_leds_count: "10"
+
+esphome:
+  name: esphome
+  includes:
+    - esphome/NullOutputComponent.h
+
+esp8266:
+  board: d1_mini
+  framework:
+    version: 2.7.4
+
+logger:
+
+api:
+  password: ""
+
+ota:
+  password: ""
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+web_server:
+  port: 80
+  local: true
+  include_internal: true
+
+preferences:
+  flash_write_interval: 30min
+
+switch:
+  - platform: restart
+    id: "restart_esphome"
+
+light:
+  - platform: fastled_clockless
+    id: light_mosaic
+    rgb_order: GRB
+    chipset: WS2812B
+    pin: GPIO14
+    num_leds: $mosaic_leds_count
+    restore_mode: ALWAYS_ON
+    default_transition_length: 0s
+  - platform: rgb
+    name: "Mosaic Begin Color"
+    id: rgb_light_mosaic_begin
+    red: null_output_float
+    green: null_output_float
+    blue: null_output_float
+  - platform: rgb
+    name: "Mosaic End Color"
+    id: rgb_light_mosaic_end
+    red: null_output_float
+    green: null_output_float
+    blue: null_output_float
+
+display:
+  - platform: addressable_light
+    id: display_light_mosaic
+    addressable_light_id: light_mosaic
+    width: $mosaic_leds_count
+    height: 1
+    rotation: 90°
+    update_interval: 16ms
+    pages: !include esphome/display_pages.yaml
+
+select:
+  - platform: template
+    id: select_mosaic
+    name: "Mosaic Select Mode"
+    optimistic: true
+    options:
+      - disabled
+      - mono
+      - gradient
+    initial_option: disabled
+    restore_value: true
+    set_action: !include esphome/set_action.yaml
+
+output:
+  - platform: custom
+    type: float
+    lambda: |-
+      auto my_output = new NullOutputComponent();
+      App.register_component(my_output);
+      return {my_output};
+    outputs:
+      id: null_output_float
