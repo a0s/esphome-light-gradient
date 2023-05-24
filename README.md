@@ -47,5 +47,5 @@ Don't forget to update the [mosaic_leds_count](https://github.com/a0s/esphome-li
 
 - To control one light source, you need to visit three popup dialogs in HASS. Here, [scenes help a little](/home-assistant/scenes.yaml).
 - To control two different light sources, you need to have a full copy of the source codes with differing IDs. This is quite error-prone when copy-pasting.
-- It's impossible to adequately control the colors from the ESPHome web interface: <img width="400" alt="Screenshot 2023-05-24 at 10 59 43" src="https://github.com/a0s/esphome-light-gradient/assets/418868/69883e08-2be6-4bca-a82f-0208fafb7bab">
+- It's impossible to adequately control the colors from the ESPHome web interface. The necessary controls are simply not available: <img width="400" alt="Screenshot 2023-05-24 at 10 59 43" src="https://github.com/a0s/esphome-light-gradient/assets/418868/69883e08-2be6-4bca-a82f-0208fafb7bab">
 
