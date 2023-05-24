@@ -41,7 +41,7 @@ output:
 
 The LED strip is defined using fastled_clockless. The `restore_mode: ALWAYS_ON` mode is used so as not to interfere with the operation of addressable_light.
 
-Don't forget to update the [mosaic_leds_count](https://github.com/a0s/esphome-light-gradient/blob/main/esphome.yaml#L2) variable with the actual number of LEDs.
+Don't forget to update the [mosaic_leds_count](https://github.com/a0s/esphome-light-gradient/blob/main/esphome.yaml#L2) variable with the actual number of LEDs. Also, update the [GPIO pin](https://github.com/a0s/esphome-light-gradient/blob/main/esphome.yaml#L43) to the one you are using.
 
 ## Disadvantages
 
