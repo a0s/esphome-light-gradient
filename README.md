@@ -39,7 +39,7 @@ output:
 
 ⚠️ To be able to set a specific color for each LED, we use [Addressable Light](https://esphome.io/components/display/addressable_light.html) over FastLED Light. Addressable Light supports so-called pages, on which different content can be presented. It's these pages that we [switch](/esphome/set_action.yaml) using Template Select. All the magic of rendering happens in the [description of the pages](/esphome/display_pages.yaml). The RGB Lights are used as a color source for the start and end of the gradient.
 
-The LED strip is defined using fastled_clockless. The restore_mode: ALWAYS_ON mode is used so as not to interfere with the operation of addressable_light.
+The LED strip is defined using fastled_clockless. The `restore_mode: ALWAYS_ON` mode is used so as not to interfere with the operation of addressable_light.
 
 Don't forget to update the [mosaic_leds_count](https://github.com/a0s/esphome-light-gradient/blob/main/esphome.yaml#L2) variable with the actual number of LEDs.
 
