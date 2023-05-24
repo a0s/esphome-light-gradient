@@ -13,7 +13,7 @@ In both devices, I was forced to replace their native controllers (Tuya and Magi
 
 ## How it works
 
-Each device in the HASS interface is represented by three entities. Two [RGB Lights](https://esphome.io/components/light/rgb.html) determine the color at the beginning and end of the gradient. And the [Template Select](https://esphome.io/components/select/template.html) allows you to switch modes of operation of the LED strip, as well as turn it off.
+In the current solution, each device in the HASS interface is represented by three entities. Two [RGB Lights](https://esphome.io/components/light/rgb.html) are used to determine the color at the beginning and end of the gradient. The [Template Select](https://esphome.io/components/select/template.html) is employed to switch between different operating modes of the LED strip, as well as to turn it off.
 
 <img width="90%" alt="HASS entity list" src="https://github.com/a0s/esphome-light-gradient/assets/418868/2410da65-ff24-4ebd-9c83-258cff03907e">
 
