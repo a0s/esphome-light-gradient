@@ -16,3 +16,8 @@ In both devices, I was forced to replace their native controllers (Tuya and Magi
 Each device in the HASS interface is represented by three entities. Two RGB Lights determine the color at the beginning and end of the gradient. And the Select Template allows you to switch modes of operation of the LED strip, as well as turn it off.
 
 <img width="90%" alt="HASS entity list" src="https://github.com/a0s/esphome-light-gradient/assets/418868/2410da65-ff24-4ebd-9c83-258cff03907e">
+
+## Disadvantages
+
+- To control one light source, you need to visit three popup dialogs in HASS. Here, scenes help a little
+- It's impossible to adequately control the colors from the ESPHome web interface.
