@@ -6,25 +6,28 @@
     }
 - id: mono
   lambda: |-
+    float brightness_begin = id(rgb_light_mosaic_begin).current_values.get_brightness();
     Color top = Color(
-      (id(rgb_light_mosaic_begin).current_values.get_red()*255),
-      (id(rgb_light_mosaic_begin).current_values.get_green()*255),
-      (id(rgb_light_mosaic_begin).current_values.get_blue()*255)
+      (id(rgb_light_mosaic_begin).current_values.get_red() * brightness_begin * 255),
+      (id(rgb_light_mosaic_begin).current_values.get_green() * brightness_begin * 255),
+      (id(rgb_light_mosaic_begin).current_values.get_blue() * brightness_begin * 255)
     );
     for (int i = 0; i <= it.get_height() - 1; ++i) {
       it.draw_pixel_at(0, i, top);
     }
 - id: gradient
   lambda: |-
+    float brightness_begin = id(rgb_light_mosaic_begin).current_values.get_brightness();
     Color top = Color(
-      (id(rgb_light_mosaic_begin).current_values.get_red()*255),
-      (id(rgb_light_mosaic_begin).current_values.get_green()*255),
-      (id(rgb_light_mosaic_begin).current_values.get_blue()*255)
+      (id(rgb_light_mosaic_begin).current_values.get_red() * brightness_begin * 255),
+      (id(rgb_light_mosaic_begin).current_values.get_green() * brightness_begin * 255),
+      (id(rgb_light_mosaic_begin).current_values.get_blue() * brightness_begin * 255)
     );
+    float brightness_end = id(rgb_light_mosaic_end).current_values.get_brightness();
     Color bottom = Color(
-      (id(rgb_light_mosaic_end).current_values.get_red()*255),
-      (id(rgb_light_mosaic_end).current_values.get_green()*255),
-      (id(rgb_light_mosaic_end).current_values.get_blue()*255)
+      (id(rgb_light_mosaic_end).current_values.get_red() * brightness_end * 255),
+      (id(rgb_light_mosaic_end).current_values.get_green() * brightness_end * 255),
+      (id(rgb_light_mosaic_end).current_values.get_blue() * brightness_end * 255)
     );
     for (int i = 0; i <= it.get_height()-1; ++i) {
         float t = i / float(it.get_height() - 1);
